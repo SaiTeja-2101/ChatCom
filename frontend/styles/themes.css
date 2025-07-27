@@ -1,0 +1,33 @@
+:root{
+        --color-primary:oklch(62.7% 0.265 303.9);
+        --color-secondary:#3b82f6;
+        --color-navbackground:#faf5ff;
+        --color-background: #fff;
+        --color-sidebar:#f4f4f5;
+        --color-messagebg:#faf5ff;
+        --color-text:oklch(0% 0 0);
+        --color-msghover:#e9d5ff;
+        --color-profilebg:#f5f3f4;
+        --color-profiletextprimary:#403d39;
+        --color-profileacctbg:#fff;
+        --color-profileinfo:oklch(90.3% 0.076 319.62);
+        --color-inputicon:#343a40;
+        --color-inputiconhover:#6c757d;
+}
+
+[data-theme="dark"]{
+       --color-primary:oklch(62.7% 0.265 303.9);
+        --color-secondary:#3b82f6;
+        --color-navbackground:#171b1d;
+        --color-background: #171b1d;
+        --color-sidebar:#212224;
+        --color-messagebg:#212224;
+        --color-text:#f1f5f9;
+        --color-msghover:#171b1d;
+        --color-profilebg:#171b1d;
+        --color-profiletextprimary:#94a3b8;
+        --color-profileacctbg:#212831;
+        --color-profileinfo:oklch(55.8% 0.288 302.321);
+        --color-inputicon:black;
+        --color-inputiconhover:#212831;
+}
