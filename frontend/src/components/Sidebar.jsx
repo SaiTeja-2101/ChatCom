@@ -26,7 +26,7 @@ const Sidebar = () => {
       </div>
       <div className="py-3 overflow-y-auto w-full">
 
-        {users.map((user, index) => {
+        {Array.isArray(users) && users.map((user, index) => {
           return <button className={`flex items-center w-full p-3 gap-3 hover:bg-msghover transition-colors ${selectedUser?._id === user._id ? 'ring-1 ring-base-300' : ''}`} key={user._id} onClick={() => setSelectedUser(user)} >
             <div className="relative mx-auto lg:mx-0">
               <img

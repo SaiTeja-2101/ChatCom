@@ -19,7 +19,7 @@ export const useChatStore=create((set,get)=>({
         set({isUsersLoading:true});
         try{
             const response=await axiosInstance.get('/messages/users');
-            set({users:response.data});
+            set({users: Array.isArray(response.data) ? response.data : []});
         }
         catch(err){
             toast.error(err.response.data.message || 'Could not fetch users, please try again later');
@@ -31,8 +31,8 @@ export const useChatStore=create((set,get)=>({
     getMessages:async(userId)=>{
         set({isMessagesLoading:true});
         try{
-            const response=await axiosInstance.get(`/messages/users/${userId}`);
-            set({messages:response.data});
+            const response=await axiosInstance.get(`/messages/${userId}`);
+            set({messages:Array.isArray(response.data) ? response.data:[]});
         }
         catch(err){
             toast.error(err.response.data.message || 'Could not fetch messages, please try again later');
@@ -45,7 +45,7 @@ export const useChatStore=create((set,get)=>({
     sendMessage:async(message)=>{
         const {selectedUser,messages}=get();
          try{
-             const response=await axiosInstance.post(`/messages/sendMessage/${selectedUser._id}`,message)
+             const response=await axiosInstance.post(`/messages/send/${selectedUser._id}`,message)
              set({messages:[...messages,response.data]})
          }
          catch(err){

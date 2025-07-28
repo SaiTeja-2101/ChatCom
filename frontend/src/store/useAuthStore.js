@@ -3,7 +3,7 @@ import { axiosInstance } from '../lib/axios.js';
 import { toast } from 'react-hot-toast';
 import { useChatStore } from './useChatStore.js';
 import {io} from 'socket.io-client'
-const baseURL= import.meta.env.MODE==="development"? "http://localhost:5555" : "";
+const baseURL= import.meta.env.MODE==="development"? "http://localhost:5555/api" : "/";
 export const useAuthStore = create((set,get) => ({
    authUser: null,
    isSigningUp: false,
@@ -51,7 +51,7 @@ export const useAuthStore = create((set,get) => ({
       try {
          const res = await axiosInstance.post('/auth/signup', data);
          //  set({authUser:res.data})
-         if(res.data.message== 'Email already exists'){
+         if(res.data.message === 'Email already exists'){
             toast.error('Email already exists');
             return false;
          }
